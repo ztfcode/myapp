@@ -122,7 +122,7 @@ if (musicTitle == '') {
     loveAlert([1, 0, 'Gunakan protokol https!'])
     $getAll('#play, #skipstart, #skipend').addAttr('disabled')
 } else if (musicTitle.includes('storage')) {
-    musicTitle = getTitle.value
+    musicTitle = 'file://' + getTitle.value
     reqhandler()
 } else if (musicTitle.includes('default')) {
     musicTitle = $database.list.song[1]
