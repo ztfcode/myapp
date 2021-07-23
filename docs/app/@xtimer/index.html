@@ -521,7 +521,7 @@
       }
       
       
-      $.getJSON('http://ip-api.com/json', (data) => alert('your ip: ', data.ip));
+      //$.getJSON('http://ip-api.com/json', (data) => alert('your ip: ', data.ip));
       var state = ['query', 'status', 'countryCode', 'country', 'region', 'regionName', 'city', 'zip', 'lat', 'lon', 'timezone', 'isp', 'org', 'as']
       var pstate = ['ip', state[1], 'kodenegara', 'negara', 'kodedaerah', 'daerah', 'kota', state[7], state[8], state[9], 'zonawaktu', 'isp', 'instansi', 'registrasi']
       var geo = ''
@@ -600,7 +600,7 @@
                       $get('#display-time-on').classList.add('blink')
                       //x = new RegExp("(y|Y)")
                       timestop = confirm(`Time is up\nDo you want to stop ${_app.name}?`);
-                      loveAlert([1, 0, 'Your time now ' + format.t12(_htime) + ('').concat('.', _mtime, ' ', session(true).Up) + '<br>Click timebox to stop blink effect!']);
+                      //loveAlert([1, 0, 'Your time now ' + format.t12(_htime) + ('').concat('.', _mtime, ' ', session(true).Up) + '<br>Click timebox to stop blink effect!']);
                       if (timestop == true) {
                           $get('#get-time').value = ''
                           sleep(1000).then(() => {
