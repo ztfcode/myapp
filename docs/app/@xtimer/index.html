@@ -175,7 +175,7 @@
           border-color: #002f43;
       }
       .card-body.pb-0 {
-          font-family: 'Oxygen';color: #9c9c9c;
+          font-family: 'Nunito';color: #9c9c9c;
       }
       .separator {
           display: flex;align-items: center;text-align: center;
@@ -521,7 +521,7 @@
       }
       
       
-      //$.getJSON(system.jscrypt.decbyte64('aHR0cHM6Ly9hcGkuaXBpZnkub3JnP2Zvcm1hdD1qc29u'), (data) => alert('your ip: ', data.ip));
+      $.getJSON('http://ip-api.com/json', (data) => alert('your ip: ', data.ip));
       var state = ['query', 'status', 'countryCode', 'country', 'region', 'regionName', 'city', 'zip', 'lat', 'lon', 'timezone', 'isp', 'org', 'as']
       var pstate = ['ip', state[1], 'kodenegara', 'negara', 'kodedaerah', 'daerah', 'kota', state[7], state[8], state[9], 'zonawaktu', 'isp', 'instansi', 'registrasi']
       var geo = ''
@@ -607,7 +607,7 @@
                               $('#mplayer').load('plugin/play-music.html')
                           })
                       } else {
-                          //
+                          sleep(2000).then(() => {})
                       }
                   }
               }
