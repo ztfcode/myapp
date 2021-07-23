@@ -1,0 +1,192 @@
+<script>
+var $database = {
+    list : {
+        song : ['xxx.cec.cx/98455d32560d9c6eee5b9fd97c2b2b3d/fKVgm3_x-OI/ccmwcawuwso', 'src/audio/default.mp3'],
+        link : ['https://youtu.be/fKVgm3_x-OI', '']
+    },
+    protocols : {
+        http : 'http',
+        https : 'https'
+    },
+    prop : '://'
+}
+$play = `
+<div id="custom-mplays" class="card b4 mb-4">
+  <div class="card-body">
+    <a type="button" id="close-mplay" class="close" style="margin-right: -12px;margin-top: -12px;font-size: 20px"><span class="bi-x"></span></a>
+    <marquee id="title-music" class="text-uppercase rounded my-2" style="margin-left: -7px;margin-right: -7px">song for my love</marquee>
+    <div class="btn-group w-100 pt-2" role="group">
+      <!-- <button type="button" id="play" class="btn b4-btn"><span class="bi-play-circle-fill"></span></button>
+      <button type="button" id="stop" class="btn b4-btn"><span class="bi-pause-circle-fill"></span></button> -->
+      <div id="audios-controlss" class="w-100 text-light">
+        <div class="row">
+          <div class="col-7 px-2">
+            <div class="btn-group w-100 text-light">
+              <button type="button" id="skipstart" class="btn b4-btn"><span class="bi-skip-start-fill"></span></button>
+              <div id="audios-controls" style="margin-right: 1px"></div>
+              <button type="button" id="skipend" class="btn b4-btn"><span class="bi-skip-end-fill"></span></button>
+            </div>
+          </div>
+          <div class="col-5 px-2">
+            <a type="button" id="stop" class="btn b4 w-100 px-1 brands" style="font-size: 0.7rem;font-family: digital-7-mono"><span id="love-music-upduration"></span> / <span id="love-music-duration">00:00</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row pt-4 text-light">
+      <div class="col-6">
+        <a type="button" id="play" class="btn b4-btn w-100"></a>
+      </div>
+      <div class="col-6">
+        <a type="button" id="stop" class="btn b4-btn w-100">Stop</a>
+      </div>
+    </div> -->
+  </div>
+</div>
+<div class="mb-0">
+  <audio id="love-music" loop>
+    <source src="" type="audio/mp3">Not support!
+  </audio>
+</div>`
+//style="margin-left: -0.5rem;margin-top: -2rem;"
+//document.write($play);
+$('#mplayer').html($play)
+var audios = document.getElementById('love-music')
+var btnPlay = '<button type="button" id="play" class="btn b4-btn rounded-0"><span class="bi-play-circle-fill"></span></button>';
+var btnPause = '<button type="button" id="stop" class="btn b4-btn rounded-0"><span class="bi-pause-circle-fill"></span></button>';
+var err = 'error, tidak dapat memuat file audio!'
+var getTitle = document.getElementById('mplays')
+var emptylist = 'Trek audio yang anda minta, saat ini belum tersedia!'
+musicTitle = getTitle.value
+
+mplay = () => {
+    $('#audios-controls').html(btnPlay)
+    $('#play').click(() => {
+        audios.play()
+        if (btnPlay) {
+            $('#audios-controls').html(btnPause)
+            $('#stop').click(() => {
+                audios.pause()
+                if (btnPause) {
+                    setTimeout(mplay, 200)
+                }
+            })
+        } 
+    })
+};mplay()
+mplayStop = () => {
+    $('#audios-controls').html(btnPause)
+    $('#stop').click(() => {
+        audios.pause()
+        if (btnPause) {
+            $('#audios-controls').html(btnPlay)
+            $('#play').click(() => {
+                audios.play()
+                if (btnPlay) {
+                    setTimeout(mplayStop, 200)
+                }
+            })
+        } 
+    })
+};
+parsepath = (pathlink) => {
+    var path = pathlink
+    var xpath = path.replace(path.slice(0, path.lastIndexOf(String.fromCodePoint(47)) + 1), '')
+    return xpath.replace('.mp3', '')
+}
+reqhandler = () => {
+    try {sleep(500).then(() => audios.play().catch(e => loveAlert([1, 0, 'Terjadi kesalahan saat memuat file audio, harap input tautan yang valid!'])))}
+    catch (e) {alert(e)} 
+    finally {mplayStop()}
+    $('#love-music').on('error', () => {
+        $('#title-music').text(err)
+        audios.pause()
+        mplay()
+        $getAll('#play, #skipstart, #skipend').addAttr('disabled')
+    });
+}
+    
+if (musicTitle == '') {
+    musicTitle =  $database.list.song[1]
+    sleep(1000).then(() => {
+        audios.play()
+        mplayStop()
+    });
+} else if (musicTitle.includes($database.protocols.https)) {
+    musicTitle = getTitle.value.replace(($database.protocols.https).concat($database.prop), '')
+    getTitle.value = musicTitle
+    musicTitle = $database.protocols.https + $database.prop + getTitle.value
+    reqhandler()
+} else if (musicTitle.includes($database.protocols.http)) {
+    musicTitle = err
+    loveAlert([1, 0, 'Gunakan protokol https!'])
+    $getAll('#play, #skipstart, #skipend').addAttr('disabled')
+} else if (musicTitle.includes('storage')) {
+    musicTitle = getTitle.value
+    reqhandler()
+} else if (musicTitle.includes('default')) {
+    musicTitle = $database.list.song[1]
+    sleep(1000).then(() => {
+        audios.play()
+        mplayStop()
+    });
+} else {
+    musicTitle = $database.protocols.https + $database.prop + getTitle.value
+    reqhandler()
+}
+
+audios.src = `${musicTitle}`
+$('#title-music').text(parsepath(musicTitle))
+$('#skipstart').click(() => {
+    audios.currentTime = 1
+    loveAlert([1, 0, emptylist])
+})
+$('#skipend').click(() => {
+    audios.currentTime = -1
+    loveAlert([1, 0, emptylist])
+})
+$('#close-mplay').click(() => {
+    $('#custom-mplays').fadeOut('slow')
+})
+
+upDuration = () => {
+    if (audios.readyState > 0) {
+        var minutes = parseInt(audios.currentTime / 60, 10);
+        var seconds = parseInt(audios.currentTime % 60);
+    }
+    minutes = (minutes == undefined) ? minutes = 0 : minutes;
+    seconds = (seconds == undefined) ? seconds = 0 : seconds;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+    $get('#love-music-upduration').innerHTML = minutes + ':' + seconds
+}
+audios.ontimeupdate = function(){upDuration()};
+audios.addEventListener("loadeddata", function() {
+    if (this.readyState > 0) {
+        var minutes = parseInt(this.duration / 60, 10);
+        var seconds = parseInt(this.duration % 60);
+    }
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+    $get('#love-music-duration').innerHTML = minutes + ':' + seconds
+});
+</script>
+<!-- <audio id="audios" controls src="data/default.mp3"></audio>
+<button id="playbtn">play</button>
+<button id="stopbtn">stop</button>
+<script>
+    var btnplay = document.querySelector('#playbtn')
+    var stopbtn = document.querySelector('#stopbtn')
+    var myaudio = document.querySelector('#audios')
+    var querylist = ['playbtn', 'stopbtn']
+    btnplay.addEventListener('click', () => {
+        try {myaudio.play()}
+        catch (e) {alert('error playing file')}
+    });
+    stopbtn.addEventListener('click', () => myaudio.pause());
+    myaudio.addEventListener('error', (e) => {
+        alert('error, audio file not found!')
+        $setAttr = (value, args) => document.querySelector(('#').concat(value)).setAttribute('disabled', true)
+        querylist.forEach($setAttr)
+    });
+</script> -->

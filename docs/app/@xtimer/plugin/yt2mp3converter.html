@@ -1,0 +1,24 @@
+<style>
+    .yt2mp3 {
+        height: 166px;
+        background-color: white;
+        position: relative;
+        overflow: hidden;
+        color: black;
+        border-radius: 3px;
+    }
+</style>
+<div id="converter" class="card mb-4 mt-2" style="height: 172px">
+  <div class="card-body p-0">
+    <a type="button" id="close-yt2mp3conv" class="close" style="margin-right: 10px;margin-top: 10px;font-size: 20px"><span class="bi-x"></span></a>
+    <div class="yt2mp3">
+      <iframe src="https://ytmp3.cc/youtubemp3/" frameborder="0" width="100%" height="320px" scrolling="no" style="position: relative;top: -125px"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+    $('#close-yt2mp3conv').click(() => {
+        $('#converter').fadeOut('slow')
+    })
+</script>
+<!-- https://ytmp3.cc/youtubemp3/ -->

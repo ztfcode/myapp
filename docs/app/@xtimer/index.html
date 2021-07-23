@@ -1,0 +1,627 @@
+<!DOCTYPE HTML>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Temanggung Gray Hat Society">
+  <meta name="keywords" content="Ztfcore | ZTHawx07">
+  <meta name="author" content="we are legion, is unknown and expect none for our's done">
+  <meta content="#001010" name="theme-color">
+  <title>Xtimer V1.2.4</title>
+  <link href="css/bootstrap.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="src/images/tghs.png" rel="icon"/>
+  <link href="css/preloader.css" rel="stylesheet"/>
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+      @import url('css/fonts.src.css');
+      html {
+          user-select: none;webkit-user-modify: none;webkit-user-select: none;
+      }
+      body {
+          /*background: url(https://gifimage.net/wp-content/uploads/2018/06/wallpaper-animasi-3d-bergerak-gif-3.gif) no-repeat center center fixed; #fff;-webkit-background-size: 100% 100%;*/background-color: #001a20;color: white;font-family: 'Nunito';
+      }
+      .transparent, .transparent:focus {
+          background-color: transparent;
+      }
+      .cdark {
+          background-color: rgba(4, 0, 0, 0.55);border: solid 1px rgba(250, 250, 250, 0.5);
+      }
+      .cdark2 {
+          background-color: #121212;border: solid var(--success);z-index: 1000;
+      }
+      .brands {
+          background-color: #001017;
+      }
+      .border-cdark {
+          border: solid 1px rgba(250, 250, 250, 0.4);
+      }
+      .brands {
+          border: none;
+      }
+      .text-success-1 {
+          color: #00ac27;
+      }
+      .form-control:focus {
+          color: #495057;border-color: rgba(0, 200, 0, 0.4);outline: none;box-shadow: none;
+      }
+      .form-control:not(:disabled) {
+          background-color: transparent;
+      }
+      .input-group {
+          border: solid 1px rgba(250, 250, 250, 0.4);border-radius: 0.25rem;
+      }
+      .input-group:hover {
+          box-shadow: 0 0 0 0.2rem rgba(0, 200, 0, 0.25);border: solid 1px rgba(0, 200, 0, 0.7);border-radius: 0.25rem;
+      } 
+      .show-hide:before, .input-flush:before {
+          font-family: bootstrap-icons;
+      } 
+      .toggles input[id="checkbox"] {
+          display: none;
+      } 
+      .show-hide:before {
+          content: "\f33e";
+      } 
+      input:checked + .show-hide:before {
+          content: "\f33f";
+      } 
+      .input-flush:before {
+          content: "\f62a";font-size: 1.29rem;color: var(--primary);
+      }
+      .table th.th-reset {
+          border-top: none;border-bottom: none;
+      }
+      .table-cdark {
+          background-color: rgba(4, 0, 0, 0.55);box-shadow: 0 0.2rem 0.1rem white;
+      }
+      .table-dark {
+          background-color: #001a42;color: #9c9c9c;border: solid 1px #454d55;border-radius: 20px;border-collapse: separate;
+      }
+      .custom-select {
+          background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%239b9fff' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px;
+      }
+      .bg-art, .patternb4 {
+          position: relative;z-index: 1;
+      }
+      .bg-art:before, .patternb4:before, .papreload:before {
+          content: "";position: absolute;z-index: -1;top: 0;bottom: 0;left: 0;right: 0;background: /*url(https://i.pinimg.com/originals/39/f6/a0/39f6a005763b37e2237b320df0e68e31.gif)*/ url(src/images/bubble-animated-background.svg) no-repeat center center;-webkit-background-size: 100% 100%;opacity: 0.2;
+      }
+      .patternb4:before {
+          z-index: 0;
+      }
+      .bg-curve {
+          background-image: linear-gradient(#001017, #001a20);border-top-left-radius: 55% 20%;border-top-right-radius: 55% 20%;
+      }
+      .digiclock, .digiclock-sessions, .digiclock-day {
+          font-family: 'digi7-mono-italic';font-size: 2rem;
+      }
+      .digiclock-sessions {
+          font-size: 1.5rem;
+      }
+      .digiclock-day {
+          font-size: 0.7rem;color: red;
+      }
+      .blink {
+          animation: blinker 1s linear infinite;
+      }
+      @keyframes blinker {
+          0% { 
+              opacity: 1;
+          }
+          50% { 
+              opacity: 1;
+          }
+          50.01% {
+              opacity: 0;
+          }
+          100% { 
+              opacity: 0;
+          }
+      }
+      .time-place {
+          position: relative;height: 85px;border: solid 1px var(--success);
+      }
+      .time-off {
+          position: absolute;color: var(--dark);opacity: 0.5;
+      }
+      .time-on {
+          position: absolute;color: var(--success);
+      }
+      .date-place {
+          width: 117px;position: relative;top: 40px;left: 5%;right: 15%;
+      }
+      .time-off, .time-on {
+          left: 10%;top: 5px;
+      }
+      .bg-b4 {
+          background-color: #001a42;color: #9b9fff;
+      }
+      .card-header {
+          background-color: #001a36;
+      }
+      .b4, .b4:focus, .b4:not(:disabled), .input-group.b4, .input-group.b4:focus {
+          background-color: #001f35;border: solid 1px #5f65ff;color: #9b9fff;
+      }
+      .b4:focus, .input-group.b4:hover, .input-group.b4:focus {
+          box-shadow: 0 0 0 0.2rem rgba(65, 66, 225, 0.25);
+      }
+      .b4-btn, span.b4-btn.box-shadow-0:hover {
+          background-color: #5f65ff;border: solid 1px #5f65ff;color: var(--light);
+      }
+      .b4-btn:hover {
+          background-color: transparent;box-shadow: 0 0 0 0.2rem rgba(66, 66, 202, 0.53);color: #9b9fff;
+      }
+      .popover-body {
+          padding: 0.5rem 0;
+      }
+      .mplayer {
+          animation: all 1s ease-in infinite;
+      }
+      .box-shadow-0:hover {
+          box-shadow: none;
+      }
+      .rounded-xlg {
+          border-radius: 0.6rem;
+      }
+      .text-b4 {
+          color: #9b9fff;
+      }
+      .title-b4 {
+          font-size: 0.85rem;font-weight: 450;
+      }
+      .border-b4 {
+          border-color: #002f43;
+      }
+      .card-body.pb-0 {
+          font-family: 'Oxygen';color: #9c9c9c;
+      }
+      .separator {
+          display: flex;align-items: center;text-align: center;
+      }
+      .separator::before, .separator::after {
+          content: '';flex: 1;border-bottom: 1px solid #fff;
+      }
+      .separator:not(:empty)::before {
+          margin-right: .25em;
+      }
+      .separator:not(:empty)::after {
+          margin-left: .25em;
+      }
+      .cardb-side {
+          border-left: 2.9px solid var(--warning) !important;
+      }
+      blockquote {
+          position: relative;margin: 0.25em;margin-left: 2em;padding: 0.5em 2em 0.5em 2em;text-align: justify;
+      }
+      blockquote:before, blockquote:after {
+          font-family: Times;position: absolute;font-size: 4em;line-height: 1;
+      }
+      blockquote:before {
+          top: 0;left: 0;content: "\201C";
+      }
+      blockquote:after {
+          float: right;right:0;bottom: -0.5em;content: "\201D";
+      }
+      .rotate {
+          animation: spinner-border .75s linear infinite;
+      }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+</head>
+  <body>
+      
+      <div id="load-preloader">
+      </div>
+      <div class="pre-loader papreload">
+        <div class="sk-fading-circle">
+          <img style="margin-left: -1.75em" src="src/images/preloader.svg"/>
+          <div id="preload" class="d-none"></div>
+        </div>
+      </div>
+      
+      <div>
+        <nav class="navbar navbar-dark navbar-expand brands sticky-top shadow">
+          <ul class="navbar-nav">
+            <li class="nav-item mt-1">
+              <a class="nav-link"><span class="bi-box-arrow-right"></span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-light text-uppercase"><strong><span id="project"></span></strong></a>
+            </li>
+            <li class="nav-item mt-1">
+              <a class="nav-link"><small><span class="badge badge-success" id="version"></span></small></a>
+            </li>
+          </ul>
+        </nav>
+        <iframe frameborder="0" height="0" width="0" loop="true" allow="autoplay" src="data/default.mp3"></iframe>
+        <br>
+        
+        <div id="xtimer" class="d-none bg-art">
+        <div class="container">
+          <div class="row">
+            <!-- <div class="col-md-3">
+              <div class="bg-b4 m-2 mt-4 p-4 rounded-xlg shadow">
+              </div>
+            </div> -->
+            <div class="col-md-3">
+              <div class="card m-2 bg-b4 rounded-xlg mt-4">
+                <div class="card-header border-b4 text-b4">
+                  <div class="">
+                    <span class="bi-app-indicator mx-1"></span><small class="title-b4 text-uppercase px-1">xtimer setup</small>
+                  </div>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="px-1">
+                  <form class="mb-0">
+                    <div class="form-row">
+                      <div class="col-4">
+                        <input id="get-time" class="form-control form-control-sm mb-4 b4" type="time" placeholder="01.09 -> 1.9"/>
+                      </div>
+                      <div class="col-8">
+                        <div class="input-group b4 input-group-sm border-0 box-shadow-0">
+                          <select id="prefs" class="custom-select b4 box-shadow-0">
+                            <optgroup label="Options">
+                            <option value="1">Lock pref</option>
+                            <option value="2">Unlock pref</option>
+                            <option value="3">Music custom</option>
+                            <option value="4">Music default</option>
+                            <option value="01">Reset all</option>
+                            </optgroup>
+                          </select>
+                          <div class="input-group-append">
+                            <button id="commit-pref" class="btn b4-btn box-shadow-0" type="button"><span class="bi-check2-square px-2"></span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+              
+                  <!-- <button id="btntoggle" class="btn b4-btn w-100 text-uppercase mb-4">click me</button> -->
+                  <div id="custom-mplay" class="d-none">
+                  <div class="input-group b4 input-group-sm mb-4 border-0">
+                    <div class="input-group-prepend text-light"><a type="button" id="pathbox" class="btn b4-btn box-shadow-0 bi-music-note-beamed px-3 pt-2"></a>
+                    </div>
+                    <input type="text" class="form-control b4 box-shadow-0" id="mplays" placeholder="https://"/>
+                    <div class="input-group-append">
+                      <button class="btn b4-btn box-shadow-0" type="button" id="loadmplayer"><span class="bi-arrow-right px-2"></span></button>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <small class="text-b4">dont have a link yet?</small>
+                    <div class="btn-group w-100">
+                      <button class="btn btn-sm btn-outline-primary text-uppercase mt-2 w-75" disabled>open converter</button>
+                      <button id="load-converter" class="btn btn-sm btn-primary text-uppercase mt-2 w-25"><i class="bi-arrow-left-right"></i></button>
+                    </div>
+                  </div>
+                  </div>
+              
+                  <script src="play-music.jsx"></script>
+                  <div id="mplayer" class="mplayer"></div>
+                  <div id="yt2mp3conv"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card m-2 bg-b4 rounded-xlg pb-2">
+                <div class="card-header border-b4 text-warning">
+                  <div class="">
+                    <span class="bi-stopwatch mx-1"></span><small class="title-b4 text-uppercase px-1">time</small>
+                  </div>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="small text-secondary px-1">
+                    <div id="time" class="d-block">
+                      <div class="alert alert-success cdark time-place">
+                        <div class="time-off"><span id="display-time-off" class="digiclock"></span></div>
+                        <div class="time-on"><span id="display-time-on" class="digiclock"></span><span id="sessions" class="digiclock-sessions"></span></div>
+                        <div class="date-place">
+                         <marquee direction="right" scrollamount="4" behavior="none"><span id="day" class="digiclock-day"></span></marquee>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card m-2 bg-b4 rounded-xlg">
+                <div class="card-header border-b4 text-success">
+                  <div class="">
+                    <span class="bi-cpu mx-1"></span><small class="title-b4 text-uppercase px-1">device</small>
+                  </div>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="small px-1">
+                    <p id="device"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card m-2 bg-b4 rounded-xlg">
+                <div class="card-header border-b4 text-info">
+                  <div class="">
+                    <span class="bi-laptop mx-1"></span><small class="title-b4 text-uppercase px-1">who is</small>
+                  </div>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="small px-1">
+                    <!-- <p id="netip"></p> -->
+                    <div class="table-responsive">
+                    <table class="table table-dark table-striped rounded">
+                      <caption class="small">Powered by ip-api.com</caption>
+                      <thead class="text-info">
+                        <tr>
+                          <th class="th-reset" scope="col">Statistic</th>
+                          <th class="th-reset" scope="col">Details</th>
+                        </tr>
+                      </thead>
+                      <tbody id="whois">
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card m-2 bg-b4 rounded-xlg">
+                <div class="card-header border-b4 text-danger"> 
+                  <div class="blink">
+                    <span class="bi-info-circle-fill mx-1"></span><small class="title-b4 text-uppercase px-1">info</small>
+                  </div>
+                </div>
+                <div class="card-body pb-0">
+                  <div class="small px-1">
+                    <p>Xtimer or ExamTimer is simple web app to timing your exam.<br>This app developed by Ztfteam | Temanggung Gray Hat Society
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card m-2 bg-b4 rounded-xlg">
+                <div class="card-header border-b4 text-primary">
+                  <span class="bi-chat-quote-fill mx-1"></span><small class="title-b4 text-uppercase px-1">quotes</small>
+                </div>
+                <div class="card-body pb-0">
+                  <p class="small text-warning text-center px-1"><q>Hanyalah produk cewek sombong dan sok keras yang dengan pdnya berani menyatakan dirinya fakgril, cuma karena memiliki tampang yang good looking.</q><br><br><span class="text-secondary">.::zthawx07::.</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card m-2 bg-b4 cardb-side m-4">
+                <div class="card-body pb-0 pt-0">
+                  <p class="small text-warning"><blockquote>Belajar melupakan dia, yang tak pernah sedikitpun mengenang dirimu dalam ingatannya sekaligus belajar menghapus rasa yang tak seharusnya ada.</blockquote><br><span class="text-secondary">-Temanggung Gray Hat Society</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        
+        <div class="container">
+          <div class="row p-4 justify-content-center">
+            <div class="col-md-6">
+            <div id="xlogin" class="mt-4"></div>
+          </div>
+        </div>
+        <div class="row p-4">
+          <div class="col-5">
+            <hr style="border-top-color: rgba(250, 250, 250, 0.4)">
+          </div>
+          <div class="col-2 px-1">
+            <div class="text-uppercase shadow text-secondary" style="font-size: 0.65rem;margin-top: 9.5px;font-weight: 500">ztfteam</div>
+          </div>
+          <div class="col-5">
+            <hr style="border-top-color: rgba(250, 250, 250, 0.4)">
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-curve p-2">
+        <hr>
+        <div id="blinks" class="text-center">
+           <a style="font-size: 0.55rem" class="text-uppercase pb-4">&copy; Copyright <script>document.write(new Date().getFullYear())</script> desakode | ztfteam</a>
+        </div>
+      </div>
+      
+      <!-- <div class="container">
+        <div class="row p-4 justify-content-center bg-dark rounded mb-5 border">
+          <p class="h6 text-left w-100 text-uppercase">table user</p>
+          <table class="table table-dark table-striped text-light rounded shadow-lg">
+            <thead>
+              <tr class="text-primary">
+                <th class="th-reset" scope="col">Id</th>
+                <th class="th-reset" scope="col">Username</th>
+                <th class="th-reset" scope="col">Password</th>
+              </tr>
+            </thead>
+            <tbody id="user-data">
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+      
+      <script src="js/handler.js"></script>
+      <script src="js/love-alert.js"></script>
+      <script src="js/login-handler.js"></script>
+      <script src="js/time.js"></script>
+      <script>
+      /*_username_list = ['row', 'zthawx', 'ztimpact', 'ztraw', 'ztfcore'];
+      
+      _content = "";
+      for (y = 1;y < _username_list.length;y++) {
+          _content += `<tr scope="${_username_list}"><th>${y}</th><td id="user-${y}">${_username_list[y]}</td><td id="pass-${y}">pass</td></tr>`;
+          document.getElementById("user-data").innerHTML = _content;
+      }
+      _update_data = ($index, $content) => {
+          _id_user = document.getElementById(`user-${$index}`).innerHTML = $content[0];
+          _id_pass = document. getElementById(`pass-${$index}`).innerHTML = $content[1];
+      }
+      
+      //modify data
+      _update_data('1', ['zthawx07', 'akudanhatimu']);
+      */
+      //https://ytmp3.cc/youtubemp3/
+      /*var preloadc = ``
+      loadpreloader = () => $get('#load-preloader').innerHTML = preloadc;
+      loadpreloader()
+      
+      var preload = ''
+      for (var x = 1;x <= 12;x++) {
+          preload += `<div class="sk-circle${x} sk-circle"></div>`
+          $get('#preload').innerHTML = preload
+      }*/
+      
+      preloader = ($delay) => {
+          'use strict';
+          sleep($delay).then(() => {
+              $(document).on('load', (function () {
+                  if ($(".pre-loader").length > 0) {
+                      $(".pre-loader").fadeOut("slow");
+                  }
+              })());
+          })
+      }
+      preloader(5000)
+      
+      loveAlert([1, 2, 'Welcome to ' + _app.name + '\nsimple web application for timing your exam', 'bgfill'])
+      /*sleep(2000).then(() => {
+              loveAlert([1, 2, 'Login dulu mank!', true])
+      })*/
+      //https://youtu.be/MvMz48EfNNA
+      
+      $('#btntoggle').click(() => {
+          $('#form-hide').toggleClass('d-none')
+      })
+      $('#pathbox').click(() => {
+          $get('#mplays').value = ''
+      })
+      $('#time').click(() => {
+          $get('#display-time-on').classList.remove('blink')
+      })
+      $('#loadmplayer').click(() => $('#mplayer').load('plugin/play-music.html'))
+      $('#load-converter').click(() => $('#yt2mp3conv').load('plugin/yt2mp3converter.html'));
+      musicPlayer = () => {
+          $get('#mplays').value = 'src/audio/default.mp3'
+          $('#mplayer').load('plugin/play-music.html')
+      }
+      
+      
+      //$.getJSON(system.jscrypt.decbyte64('aHR0cHM6Ly9hcGkuaXBpZnkub3JnP2Zvcm1hdD1qc29u'), (data) => $('#netip').html(data.ip));
+      var state = ['query', 'status', 'countryCode', 'country', 'region', 'regionName', 'city', 'zip', 'lat', 'lon', 'timezone', 'isp', 'org', 'as']
+      var pstate = ['ip', state[1], 'kodenegara', 'negara', 'kodedaerah', 'daerah', 'kota', state[7], state[8], state[9], 'zonawaktu', 'isp', 'instansi', 'registrasi']
+      var geo = ''
+      $.getJSON(system.jscrypt.decbyte64('aHR0cDovL2lwLWFwaS5jb20vanNvbg'), (data) => {
+          for (index in state) {
+              geo += eval(`('<tr><td class="text-success text-uppercase">${pstate[index]}</td><td>' + data.${state[index]} + '</td></tr>')`)
+              $('#whois').html(geo)
+          }
+      });
+      
+      $('#device').html(navigator.userAgent)
+      
+      var mplayC = $get('#custom-mplay')
+      var mplayD = $get('#default-mplay')
+      
+      $(function() {
+          $('[data-toggle="popovers"]').popover({
+              html: true,
+              content: function() {
+                  return $('#popover-content').html();
+              }
+          });
+      });
+      
+      $get('#commit-pref').addEventListener('click', () => {
+          $get('#prefs').addEventListener('change', (() => {
+              var prefs = $get('#prefs')
+              if (prefs.value == '1') {
+                  loveAlert([2, 0, 'prefix is locked!'])
+                  $getAll('#get-time, #mplays').addAttr('readonly')
+                  $getAll('#loadmplayer, #load-converter').addAttr('disabled')
+              } else if (prefs.value == '2') {
+                  loveAlert([2, 0, 'prefix is unlocked!'])
+                  $getAll('#get-time, #mplays').removeAttr('readonly')
+                  $getAll('#loadmplayer, #load-converter').removeAttr('disabled')
+              } else if (prefs.value == '3') {
+                  mplayC.classList.add('d-block')
+              } else if (prefs.value == '4') {
+                  mplayC.classList.remove('d-block')
+                  sleep(1000).then(() => {
+                      $('#mplayer').load('plugin/play-music.html')
+                  })
+              } else if (prefs.value = '01') {
+                  loveAlert([1, 0, 'Your setup has been return to default!', false])
+                  $get('#get-time').value = null
+                  $get('#mplays').value = ''
+                  mplayC.classList.remove('d-block')
+              } else {}
+          })());
+      });
+      
+      (displayDate = () => {
+          _date = new Date();
+          _htime = $date().hhf();
+          _mtime = $date().mmf();
+          _stime = $date().ssf();
+          _mstime = $date().msf();
+          let locale = 'day';
+          _fdtime = _date.toLocaleDateString(locale, {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+          });
+          
+          _days = _date.toLocaleDateString(locale, { weekday: 'long' });
+          (_fdtime < 10) ? ('0' + _fdtime) : _fdtime;
+          _day = _days + ' - ' + _fdtime;
+          _times = "";
+          $getAll("#day").inHtml(exal(`_day${textTransform['0']}`));
+          
+          clock = (_htime) + ':' + _mtime;
+          ut = $get('#get-time');
+          $getAll('#get-time').addEvent('change', (() => {
+              if (ut.value == clock || ut.Defaultvalue != ut.value) {
+                  if (ut.value == clock) {
+                      $get('#display-time-on').classList.add('blink')
+                      //x = new RegExp("(y|Y)")
+                      timestop = confirm(`Time is up\nDo you want to stop ${_app.name}?`);
+                      loveAlert([1, 0, 'Your time now ' + format.t12(_htime) + ('').concat('.', _mtime, ' ', session(true).Up) + '<br>Click timebox to stop blink effect!']);
+                      if (timestop == true) {
+                          $get('#get-time').value = ''
+                          sleep(1000).then(() => {
+                              $('#mplayer').load('plugin/play-music.html')
+                          })
+                      } else {
+                          //
+                      }
+                  }
+              }
+              //alert('time is up')
+          })());
+          
+          $getAll("#sessions").inHtml(session(true).Up)
+          _full_time = [format.t12(_htime), _mtime, _stime];
+          _timed = (_full_time.join(":")).concat('.', _mstime, ' ');
+          $getAll("#display-time-on").inHtml(_timed)
+          $getAll("#display-time-off").inHtml('88:88:88.88   ')
+          setTimeout(displayDate, 10);
+      })();
+      </script>
+  </body>
+</html>

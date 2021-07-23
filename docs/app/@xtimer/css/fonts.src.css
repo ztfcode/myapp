@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'digi7';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../webfonts/digital-7.ttf);
+}
+
+@font-face {
+    font-family: 'digi7-mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../webfonts/digital-7.mono.ttf);
+}
+
+@font-face {
+    font-family: 'digi7-italic';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../webfonts/digital-7.italic.ttf);
+}
+
+@font-face {
+    font-family: 'digi7-mono-italic';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../webfonts/digital-7.mono-italic.ttf);
+}
