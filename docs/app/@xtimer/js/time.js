@@ -6,7 +6,7 @@ var $date = () => {
         ss : _date.getSeconds(),
         mm : _date.getMinutes() ,
         ms : _date.getMilliseconds(),
-        hhf : () => ($date().hh < 10) ? ('0').concat($date().hh) : $date().hh,
+        hhf : () => $date().hh,//($date().hh < 10) ? ('0').concat($date().hh) : $date().hh,
         mmf : () => ($date().mm < 10) ? ('0').concat($date().mm) : $date().mm,
         ssf : () => ($date().ss < 10) ? ('0').concat($date().ss) : $date().ss,
         msf : () => {
@@ -18,10 +18,13 @@ var $date = () => {
 var format = {
     t12 : value => {
         value = (value > 12) ? value - 12 : value
-        //value = (value < 10) ? ('0').concat(value) : value
+        value = (value < 10) ? ('0').concat(value) : value
         return value
     },
-    t24 : value => value
+    t24 : value => {
+        value = (value < 10) ? ('0').concat(value) : value
+        return value
+    }
 }
 var session = (args, _custom_args) => {
     var sess = ''
