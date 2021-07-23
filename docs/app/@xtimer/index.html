@@ -8,7 +8,7 @@
   <meta name="keywords" content="Ztfcore | ZTHawx07">
   <meta name="author" content="we are legion, is unknown and expect none for our's done">
   <meta content="#001010" name="theme-color">
-  <title>Xtimer V1.2.4</title>
+  <title>Xtimer v1.2.4</title>
   <link href="css/bootstrap.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="src/images/tghs.png" rel="icon"/>
@@ -240,7 +240,7 @@
         <iframe frameborder="0" height="0" width="0" loop="true" allow="autoplay" src="data/default.mp3"></iframe>
         <br>
         
-        <div id="xtimer" class="d-none bg-art">
+        <div id="xtimer" class="d-nones bg-art">
         <div class="container">
           <div class="row">
             <!-- <div class="col-md-3">
@@ -282,7 +282,7 @@
               
                   <div id="custom-mplay" class="d-none">
                   <div class="input-group b4 input-group-sm mb-4 border-0">
-                    <div class="input-group-prepend text-light"><span type="button" id="pathbox" class="btn b4-btn box-shadow-0 bi-music-note-beamed px-3 pt-2"></span>
+                    <div class="input-group-prepend text-light"><button type="button" id="pathbox" class="btn b4-btn box-shadow-0 bi-music-note-beamed px-3 pt-2"></button>
                     </div>
                     <input type="text" class="form-control b4 box-shadow-0" id="mplays" placeholder="https://"/>
                     <div class="input-group-append">
@@ -520,7 +520,7 @@
       }
       
       
-      //$.getJSON(system.jscrypt.decbyte64('aHR0cHM6Ly9hcGkuaXBpZnkub3JnP2Zvcm1hdD1qc29u'), (data) => $('#netip').html(data.ip));
+      $.getJSON(system.jscrypt.decbyte64('aHR0cHM6Ly9hcGkuaXBpZnkub3JnP2Zvcm1hdD1qc29u'), (data) => alert('your ip: ', data.ip));
       var state = ['query', 'status', 'countryCode', 'country', 'region', 'regionName', 'city', 'zip', 'lat', 'lon', 'timezone', 'isp', 'org', 'as']
       var pstate = ['ip', state[1], 'kodenegara', 'negara', 'kodedaerah', 'daerah', 'kota', state[7], state[8], state[9], 'zonawaktu', 'isp', 'instansi', 'registrasi']
       var geo = ''
