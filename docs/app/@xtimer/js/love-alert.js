@@ -18,7 +18,7 @@ _loveAlert =
         opacity: 1;transform: scale(1);
     }
     .btn.btn-sm.la-btn, .btn.btn-sm.la-btn:hover {
-        width: 60px;
+        width: 65px;text-align: center;
     }
     .btn.btn-sm.la-btn:hover, .btn.btn-sm.la-btn:focus {
         background-color: #9b9fff;color: #001f35;
@@ -51,7 +51,7 @@ _loveAlert =
 document.write(_loveAlert)
 
 loveAlert = $content => {
-    _header = $content => `<p class="h6 text-uppercase la-blink pb-2">${$content}<span style="font-size: 1.2rem" class="bi-exclamation-circle ml-2"></span></p>`;
+    _header = $content => `<p class="h6 text-uppercase la-blink pb-2">${$content}<span style="font-size: 1.2rem" class="bi-exclamation-circle"></span></p>`;
     _footer = $content => `<div class="row"><div class="col"><a id="btn-no" type="button" data-dismiss="modal" class="btn btn-sm la-btn">${$content}</a></div><div class="col"><a id="btn-yes" data-dismiss="modal" type="button" class="btn btn-sm la-btn ml-2">ok</a></div></div>`;
     _alertType = ['', _header('warning'), _header('notification')]
     _alertFooter = [_footer(''), _footer('batal'), _footer('tutup')]
