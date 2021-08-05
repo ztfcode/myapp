@@ -52,7 +52,7 @@ document.write(_loveAlert)
 
 loveAlert = $content => {
     _header = $content => `<p class="h6 text-uppercase la-blink pb-2">${$content}<span style="font-size: 1.2rem" class="bi-exclamation-circle ml-2"></span></p>`;
-    _footer = $content => `<div class="row"><div class="col"><a id="btn-no" type="button" data-dismiss="modal" class="btn btn-sm la-btn">${$content}</a></div><div class="col"><a id="btn-yes" data-dismiss="modal" type="button" class="btn btn-sm la-btn">ok</a></div></div>`;
+    _footer = $content => `<div class="row"><div class="col"><a id="btn-no" type="button" data-dismiss="modal" class="btn btn-sm la-btn">${$content}</a></div><div class="col"><a id="btn-yes" data-dismiss="modal" type="button" class="btn btn-sm la-btn mr-5">ok</a></div></div>`;
     _alertType = ['', _header('warning'), _header('notification')]
     _alertFooter = [_footer(''), _footer('batal'), _footer('tutup')]
     var $bgimg = ''
