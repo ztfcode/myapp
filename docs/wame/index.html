@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="keywords" content="wame, wa-api, whatsapp, wa authors">
+  <meta name="author" content="ztfcode - ztfteam">
+  <meta name="description" content="WhatsApp Me">
+  <meta name="theme-color" content="black">
+  <title>WA ME:)</title>
+  <style>
+      button {
+          margin: auto;
+      }
+  </style>
+  <link rel="icon" href="https://">
+  <link rel="stylesheet" href="https://">
+</head>
+  <body>
+      
+      <button id="load">Sentuh Aku Mas >//<</button>
+      
+    <script>
+        const param = new URLSearchParams(document.location.search)
+        const number = 6285867400659
+        
+        if (param.get('phone') == number) {
+            navigator.getBattery().then(e => {
+                const message = `*Hai saya:* \`\`\`[${window.navigator.userAgent}]\`\`\` %0a%0a *Menyapa anda dengan persentase baterai yang tersisa di perangkat saya* %0a%0a *BATERAI SAYA: ${e.level * 100} (percent)* %0a%0a%0a _Powered by_ *Zeroteam | Ztfteam*`
+                document.getElementById('load').onclick = function () {
+                window.open(`https://api.whatsapp.com/send/?phone=${number}&text=${message}`)
+                }
+            })
+        } else {
+            alert(`invalid phone number: ${param.get('phone')}`)
+            document.getElementById('load').onclick = function () {
+                alert(`invalid phone number: ${param.get('phone')}`)
+            }
+        }
+        console.log()
+    </script>
+  </body>
+</html>
